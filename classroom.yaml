@@ -1,0 +1,27 @@
+name: Numpy and Pandas Assignment Autograder
+
+on: [push]
+
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy pandas pytest
+    
+    - name: Run Tests
+      run: pytest tests.py
+    
+    - name: Generate Report
+      run: |
+        pytest tests.py --json-report
