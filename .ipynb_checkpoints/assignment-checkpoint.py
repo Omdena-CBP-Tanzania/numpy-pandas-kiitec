@@ -93,19 +93,14 @@ def select_data(df):
     Returns:
         pandas.DataFrame: Selected data
     """
-    select_df = df[['Name', 'Age', 'Salary']][0:5]
+    select_df = df['Name', 'Age', 'Salary'].iloc[0:4]
 
     return select_df
 
 def rename_columns(df):
     """
     Rename columns of the DataFrame
-    using previous dataframe, renaming 'Name', 'Salary', 'Department' columns
     Returns:
         pandas.DataFrame: DataFrame with renamed columns
     """
-
-    rn_df = df.rename(columns = {'Name':'Employee', 'Salary':'Income','Department':'Section'}, inplace =True)
-
-    return rn_df
-    
+    pass
